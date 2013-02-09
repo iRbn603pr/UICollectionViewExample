@@ -1,3 +1,6 @@
 [submodule "500px-iOS-api"]
 	path = 500px-iOS-api
 	url = git://github.com/AshFurrow/500px-iOS-api.git
+[submodule "Frameworks/PonyDebugger"]
+	path = Frameworks/PonyDebugger
+	url = git://github.com/square/PonyDebugger.git

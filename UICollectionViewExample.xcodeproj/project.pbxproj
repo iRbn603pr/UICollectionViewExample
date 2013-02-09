@@ -20,6 +20,11 @@
 		5ECF306D15FF6BDB00E41BB4 /* AFMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECF306C15FF6BDB00E41BB4 /* AFMasterViewController.m */; };
 		5ECF307015FF6BDB00E41BB4 /* AFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECF306F15FF6BDB00E41BB4 /* AFDetailViewController.m */; };
 		5ECF308715FF6C1100E41BB4 /* libPXAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ECF308315FF6BFE00E41BB4 /* libPXAPI.a */; };
+		AA6B3B4816C6C7700015DFC4 /* libPonyDebugger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6B3B4316C6C7460015DFC4 /* libPonyDebugger.a */; };
+		AA6B3B4A16C6C7700015DFC4 /* libSocketRocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6B3B4916C6C7700015DFC4 /* libSocketRocket.a */; };
+		AA6B3B4C16C6C78A0015DFC4 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6B3B4B16C6C78A0015DFC4 /* libicucore.dylib */; };
+		AA6B3B4E16C6C7900015DFC4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6B3B4D16C6C7900015DFC4 /* CFNetwork.framework */; };
+		AA6B3B5016C6C7960015DFC4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6B3B4F16C6C7960015DFC4 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = 5EB9AFD515C34F3F002E7F6D;
 			remoteInfo = tests;
+		};
+		AA6B3B4216C6C7460015DFC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA6B3B3D16C6C7460015DFC4 /* PonyDebugger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F683ADAC14FC1B4C008EBBA7;
+			remoteInfo = PonyDebugger;
+		};
+		AA6B3B4616C6C7610015DFC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA6B3B3D16C6C7460015DFC4 /* PonyDebugger.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F683ADAB14FC1B4C008EBBA7;
+			remoteInfo = PonyDebugger;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -60,6 +79,11 @@
 		5ECF306E15FF6BDB00E41BB4 /* AFDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFDetailViewController.h; sourceTree = "<group>"; };
 		5ECF306F15FF6BDB00E41BB4 /* AFDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFDetailViewController.m; sourceTree = "<group>"; };
 		5ECF307A15FF6BFE00E41BB4 /* PXAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PXAPI.xcodeproj; path = "500px-iOS-api/PXAPI.xcodeproj"; sourceTree = "<group>"; };
+		AA6B3B3D16C6C7460015DFC4 /* PonyDebugger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PonyDebugger.xcodeproj; path = Frameworks/PonyDebugger/ObjC/PonyDebugger.xcodeproj; sourceTree = "<group>"; };
+		AA6B3B4916C6C7700015DFC4 /* libSocketRocket.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSocketRocket.a; path = "Frameworks/PonyDebugger/ObjC/SocketRocket/build/Release-iphoneos/libSocketRocket.a"; sourceTree = "<group>"; };
+		AA6B3B4B16C6C78A0015DFC4 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		AA6B3B4D16C6C7900015DFC4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		AA6B3B4F16C6C7960015DFC4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +91,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA6B3B5016C6C7960015DFC4 /* Security.framework in Frameworks */,
+				AA6B3B4E16C6C7900015DFC4 /* CFNetwork.framework in Frameworks */,
+				AA6B3B4C16C6C78A0015DFC4 /* libicucore.dylib in Frameworks */,
+				AA6B3B4A16C6C7700015DFC4 /* libSocketRocket.a in Frameworks */,
+				AA6B3B4816C6C7700015DFC4 /* libPonyDebugger.a in Frameworks */,
 				5ECF305215FF6BDB00E41BB4 /* UIKit.framework in Frameworks */,
 				5ECF305415FF6BDB00E41BB4 /* Foundation.framework in Frameworks */,
 				5ECF305615FF6BDB00E41BB4 /* CoreGraphics.framework in Frameworks */,
@@ -84,6 +113,7 @@
 				5ECF305915FF6BDB00E41BB4 /* UICollectionViewExample */,
 				5ECF305015FF6BDB00E41BB4 /* Frameworks */,
 				5ECF304E15FF6BDB00E41BB4 /* Products */,
+				AA6B3B3D16C6C7460015DFC4 /* PonyDebugger.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,11 +128,15 @@
 		5ECF305015FF6BDB00E41BB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5ECF307A15FF6BFE00E41BB4 /* PXAPI.xcodeproj */,
-				5ECF305115FF6BDB00E41BB4 /* UIKit.framework */,
-				5ECF305315FF6BDB00E41BB4 /* Foundation.framework */,
-				5ECF305515FF6BDB00E41BB4 /* CoreGraphics.framework */,
+				AA6B3B4916C6C7700015DFC4 /* libSocketRocket.a */,
+				AA6B3B4B16C6C78A0015DFC4 /* libicucore.dylib */,
+				AA6B3B4D16C6C7900015DFC4 /* CFNetwork.framework */,
 				5ECF305715FF6BDB00E41BB4 /* CoreData.framework */,
+				5ECF305515FF6BDB00E41BB4 /* CoreGraphics.framework */,
+				5ECF305315FF6BDB00E41BB4 /* Foundation.framework */,
+				AA6B3B4F16C6C7960015DFC4 /* Security.framework */,
+				5ECF305115FF6BDB00E41BB4 /* UIKit.framework */,
+				5ECF307A15FF6BFE00E41BB4 /* PXAPI.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,6 +179,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		AA6B3B3E16C6C7460015DFC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA6B3B4316C6C7460015DFC4 /* libPonyDebugger.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,6 +201,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AA6B3B4716C6C7610015DFC4 /* PBXTargetDependency */,
 			);
 			name = UICollectionViewExample;
 			productName = UICollectionViewExample;
@@ -187,6 +230,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = AA6B3B3E16C6C7460015DFC4 /* Products */;
+					ProjectRef = AA6B3B3D16C6C7460015DFC4 /* PonyDebugger.xcodeproj */;
+				},
+				{
 					ProductGroup = 5ECF307B15FF6BFE00E41BB4 /* Products */;
 					ProjectRef = 5ECF307A15FF6BFE00E41BB4 /* PXAPI.xcodeproj */;
 				},
@@ -211,6 +258,13 @@
 			fileType = wrapper.cfbundle;
 			path = tests.octest;
 			remoteRef = 5ECF308415FF6BFE00E41BB4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA6B3B4316C6C7460015DFC4 /* libPonyDebugger.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPonyDebugger.a;
+			remoteRef = AA6B3B4216C6C7460015DFC4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -242,6 +296,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA6B3B4716C6C7610015DFC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PonyDebugger;
+			targetProxy = AA6B3B4616C6C7610015DFC4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5ECF305C15FF6BDB00E41BB4 /* InfoPlist.strings */ = {
