@@ -25,46 +25,51 @@ static NSString *CellIdentifier = @"AFCollectionViewCell";
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    _objectChanges = [NSMutableArray array];
-    _sectionChanges = [NSMutableArray array];
-    
-    self.title = @"Popular on 500px";
-    
-    [PXRequest setConsumerKey:@"consumer key here" consumerSecret:@"consumer secret here"];
-    
-    [PXRequest requestForPhotoFeature:PXAPIHelperPhotoFeaturePopular completion:^(NSDictionary *results, NSError *error) {
-        if (error)
-        {
-            [[[UIAlertView alloc] initWithTitle:@"Couldn't fetch from 500px." message:error.localizedDescription delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
-            return;
-        }
-        
-        NSArray *photoArray = [results valueForKey:@"photos"];
-        
-        for (NSDictionary *photoDictionary in photoArray)
-        {
-            NSManagedObject *photoModel = [NSEntityDescription insertNewObjectForEntityForName:@"AFPhotoModel" inManagedObjectContext:AppDelegate.managedObjectContext];
-            [photoModel setValue:[photoDictionary valueForKey:@"rating"] forKey:@"photoRating"];
-            [photoModel setValue:[photoDictionary valueForKey:@"name"] forKey:@"photoName"];
-            
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-                NSString *urlString = [[[photoDictionary valueForKey:@"images"] objectAtIndex:0] valueForKey:@"url"];
-                NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [photoModel setValue:imageData forKey:@"photoImageData"];
-                });
-            });
-        }
-    }];
+   [super viewDidLoad];
+
+   _objectChanges = [NSMutableArray array];
+   _sectionChanges = [NSMutableArray array];
+
+   self.title = @"Popular on 500px";
+
+   [PXRequest setConsumerKey:@"consumer key here"
+              consumerSecret:@"consumer secret here"];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Actions
+
+- (IBAction)loadPopularImages:(id)sender
+{
+   [PXRequest requestForPhotoFeature:PXAPIHelperPhotoFeaturePopular completion:^(NSDictionary *results, NSError *error) {
+      if (error)
+      {
+         [[[UIAlertView alloc] initWithTitle:@"Couldn't fetch from 500px." message:error.localizedDescription delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+         return;
+      }
+      
+      NSArray *photoArray = [results valueForKey:@"photos"];
+      
+      for (NSDictionary *photoDictionary in photoArray)
+      {
+         NSManagedObject *photoModel = [NSEntityDescription insertNewObjectForEntityForName:@"AFPhotoModel" inManagedObjectContext:AppDelegate.managedObjectContext];
+         [photoModel setValue:[photoDictionary valueForKey:@"rating"] forKey:@"photoRating"];
+         [photoModel setValue:[photoDictionary valueForKey:@"name"] forKey:@"photoName"];
+         
+         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            NSString *urlString = [[[photoDictionary valueForKey:@"images"] objectAtIndex:0] valueForKey:@"url"];
+            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+               [photoModel setValue:imageData forKey:@"photoImageData"];
+            });
+         });
+      }
+   }];
 }
 
 #pragma mark - UICollectionView

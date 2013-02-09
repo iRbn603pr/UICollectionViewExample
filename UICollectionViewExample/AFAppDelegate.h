@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PDDebugger.h"
+
 @interface AFAppDelegate : UIResponder <UIApplicationDelegate>
+{
+   PDDebugger* fDebugger;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

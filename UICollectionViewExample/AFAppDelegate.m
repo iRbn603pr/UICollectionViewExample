@@ -18,14 +18,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
-    
-    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    AFMasterViewController *controller = (AFMasterViewController *)navigationController.topViewController;
-    controller.managedObjectContext = self.managedObjectContext;
-    return YES;
+   fDebugger = [PDDebugger defaultInstance];
+
+   [fDebugger enableNetworkTrafficDebugging];
+   [fDebugger forwardAllNetworkTraffic];
+   
+   [fDebugger enableCoreDataDebugging];
+   [fDebugger addManagedObjectContext:self.managedObjectContext withName:@"Popular on 500px"];
+   
+   [fDebugger enableViewHierarchyDebugging];
+   
+   [fDebugger connectToURL:[NSURL URLWithString:@"ws://127.0.0.1:9000/device"]];
+   
+
+   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+
+   UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+   AFMasterViewController *controller = (AFMasterViewController *)navigationController.topViewController;
+   controller.managedObjectContext = self.managedObjectContext;
+   return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
